@@ -1,0 +1,40 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "install",
+            "type": "shell",
+            "command": "rm -fR node_modules && npm install",
+            "group": "build"
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "ng build --prod",
+            "group": "build",
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+        {
+            "label": "build-dev",
+            "type": "shell",
+            "command": "ng build --watch --source-map=false",
+            "group": "build",
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+        {
+            "label": "build-dev-debug",
+            "type": "shell",
+            "command": "ng build --watch",
+            "group": "build",
+            "problemMatcher": [
+                "$msCompile"
+            ]
+        },
+    ]
+}
