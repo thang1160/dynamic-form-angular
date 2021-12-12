@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-form-wrapper',
@@ -6,12 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-wrapper.component.scss']
 })
 export class FormWrapperComponent implements OnInit {
-
-  public type: string = "5"
+  
+  @Input() index: number = 0;
+  @Output() onChangeWidth : EventEmitter<string> = new EventEmitter();
+  public type: string = "5";
+  public options: string[] = [""];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  addOption() {
+    this.options.push("");
+  }
+
+  changeWidth(input: HTMLInputElement) {
+    this.onChangeWidth.emit(input.value);
+  }
 }
